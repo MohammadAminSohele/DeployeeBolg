@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Clean Blog - Start Bootstrap Theme</title>
+
+        {% include 'shared/_HeaderRefrences.html' %}
+        
+    </head>
+    <body>
+
+        {% include 'shared/Header.html' %}
+        
+        {% block content %}{% endblock content %}
+            
+        {% include 'shared/Footer.html' %}
+
+        {% include 'shared/_FooterRefrences.html' %}
+
+    </body>
+</html>
