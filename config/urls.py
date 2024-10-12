@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+from .import settings
+
+from django.conf.urls.static import static
+
 from Articles.views import home_page
 
 urlpatterns = [
@@ -24,3 +28,7 @@ urlpatterns = [
     path('',home_page,name='home_page'),
     path('Article/',include('Articles.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
