@@ -12,7 +12,11 @@
     </head>
     <body style="direction: rtl; text-align: right;">
 
-        {% include 'shared/Header.html' %}
+        {% comment %} {% include 'shared/Header.html' %} {% endcomment %}
+
+        
+        {% block Header %}{% endblock Header %}
+            
         
         {% block content %}{% endblock content %}
             
