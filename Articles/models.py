@@ -24,6 +24,7 @@ class Article(models.Model):
     )
     title=models.CharField(max_length=100,verbose_name='عنوان')
     slug=models.SlugField(max_length=50,verbose_name='عنوان در url')
+    cataogry= models.ManyToManyField(Catagory,verbose_name='دسته بندی')
     description=models.TextField(verbose_name='توضیحات')
     images=models.ImageField(upload_to='images',verbose_name='عکس')
     published=models.DateTimeField(default=timezone.now,verbose_name='تاریخ انتشار')
