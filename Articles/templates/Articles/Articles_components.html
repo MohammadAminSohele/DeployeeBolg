@@ -2,7 +2,7 @@
 {% for object in Article %}
 <!-- Post preview-->
 <div class="post-preview">
-    <a href="post.html">
+    <a href="{% url 'Article:Article_detail' object.slug %}">
         <h2 class="post-title">{{object.title}}</h2>
         <h3 class="post-subtitle">{{object.description}}</h3>
     </a>
