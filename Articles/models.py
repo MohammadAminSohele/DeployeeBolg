@@ -4,6 +4,19 @@ from django.utils import timezone
 
 # Create your models here.
 
+class Catagory(models.Model):
+    title=models.CharField(max_length=100,verbose_name='عنوان')
+    slug=models.SlugField(max_length=50,verbose_name='عنوان در url')
+    status=models.BooleanField(default=True,verbose_name='فعال/غیرفعال')
+    position=models.IntegerField(default=1,verbose_name='اولویت')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name='دسته بندی'
+        verbose_name_plural='دسته بندی ها'
+
 class Article(models.Model):
     STATUS_CHOICES=(
         ('p','پابلیش'),
