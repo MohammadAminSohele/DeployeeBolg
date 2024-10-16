@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 from .models import Article
 
@@ -10,3 +10,9 @@ def home_page(request):
         'Last_slider':Article.objects.order_by('-created').all()[:1]
     }
     return render(request,'home_page.html',context)
+
+def Article_detail(request,slug):
+    context={
+        'object':get_object_or_404(Article,slug=slug,status='p')
+    }
+    return render(request,'Articles/Article_detail.html',context)
