@@ -620,3 +620,4 @@ MigrationBackup/
 
 # End of https://www.toptal.com/developers/gitignore/api/vs,django,python
 /Articles/migrations
+extentions/__init__.py
