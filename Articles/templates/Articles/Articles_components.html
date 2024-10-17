@@ -10,6 +10,10 @@
         {% comment %} Posted by {% endcomment %}
         {% comment %} <a href="#!">Start Bootstrap</a> {% endcomment %}
         {{object.Jpublish}}
+        <br>
+        {% for cat in object.cataogry.all %}
+            # {{cat.title}}
+        {% endfor %}
     </p>
 </div>
 <!-- Divider-->
