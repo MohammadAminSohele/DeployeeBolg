@@ -6,6 +6,10 @@ from extentions.utils import JalaliConverter
 
 # Create your models here.
 
+class ArticleManager(models.Manager):
+    def published(self):
+        return self.filter(status='p')
+
 class Catagory(models.Model):
     title=models.CharField(max_length=100,verbose_name='عنوان')
     slug=models.SlugField(max_length=50,verbose_name='عنوان در url')
@@ -26,7 +30,7 @@ class Article(models.Model):
     )
     title=models.CharField(max_length=100,verbose_name='عنوان')
     slug=models.SlugField(max_length=50,verbose_name='عنوان در url')
-    cataogry= models.ManyToManyField(Catagory,verbose_name='دسته بندی')
+    cataogry= models.ManyToManyField(Catagory,verbose_name='دسته بندی',related_name='articles')
     description=models.TextField(verbose_name='توضیحات')
     images=models.ImageField(upload_to='images',verbose_name='عکس')
     published=models.DateTimeField(default=timezone.now,verbose_name='تاریخ انتشار')
@@ -40,6 +44,11 @@ class Article(models.Model):
     def Jpublish(self):
         return JalaliConverter(self.published)
     
+    def catagory_published(self):
+        return self.cataogry.filter(status=True)
+    
+    objects=ArticleManager()
+
     class Meta:
         verbose_name='مقاله'
         verbose_name_plural='مقالات'
