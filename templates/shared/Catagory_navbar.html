@@ -2,7 +2,7 @@
     <ul class="navbar-nav ms-auto py-4 py-lg-0">
         
         {% for object in Catagory %}
-        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="">{{object.title}}</a></li>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Article:Show_articles_by_Catagory' object.slug %}">{{object.title}}</a></li>
         {% endfor %}
     </ul>
 </div>
