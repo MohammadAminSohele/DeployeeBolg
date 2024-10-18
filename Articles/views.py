@@ -1,12 +1,18 @@
 from django.shortcuts import render,get_object_or_404
 
+from django.core.paginator import Paginator
+
 from .models import Article,Catagory
 
 # Create your views here.
 
 def home_page(request):
+    Articles_list=Article.objects.published()
+    paginator=Paginator(Articles_list,3)
+    page=request.GET.get('page')
+    articles=paginator.get_page(page)
     context={
-        'Article':Article.objects.published(),
+        'Article':articles,
         'Last_slider':Article.objects.all()[:1]
     }
     return render(request,'home_page.html',context)

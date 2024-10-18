@@ -26,6 +26,7 @@ from Articles.views import home_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_page,name='home_page'),
+    path('page/<int:page>',home_page,name='home_page'),
     path('Article/',include('Articles.urls')),
 ]
 
