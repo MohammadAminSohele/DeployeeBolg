@@ -23,6 +23,8 @@ from django.conf.urls.static import static
 
 from Articles.views import home_page
 
+app_name="Config"
+
 urlpatterns = [
     path('',home_page,name='home_page'),
     path('page/<int:page>',home_page,name='home_page'),

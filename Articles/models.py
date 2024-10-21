@@ -11,6 +11,7 @@ class ArticleManager(models.Manager):
         return self.filter(status='p')
 
 class Catagory(models.Model):
+    parent=models.ForeignKey('self',default=None,blank=True,null=True,on_delete=models.CASCADE,related_name='children',verbose_name='زیر دسته')
     title=models.CharField(max_length=100,verbose_name='عنوان')
     slug=models.SlugField(max_length=50,verbose_name='عنوان در url')
     status=models.BooleanField(default=True,verbose_name='فعال/غیرفعال')
