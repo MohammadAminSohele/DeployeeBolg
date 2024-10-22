@@ -23,6 +23,7 @@ class Catagory(models.Model):
     class Meta:
         verbose_name='دسته بندی'
         verbose_name_plural='دسته بندی ها'
+        ordering=['parent__id','position']
 
 class Article(models.Model):
     STATUS_CHOICES=(
