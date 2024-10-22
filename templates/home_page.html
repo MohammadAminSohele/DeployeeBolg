@@ -1,14 +1,11 @@
 {% extends 'shared/_MainLayout.html' %}
 {% load static %}
 
-
 {% block title %}خانه{% endblock title %}
-
 
 {% block Header %}
     {% include 'Articles/Home_Baner.html' %}
 {% endblock Header %}
-    
 
 {% block content %}
     <!-- Main Content-->
@@ -17,7 +14,6 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 {% include 'Articles/Articles_components.html' %}
                 <!-- Pager-->
-                
                 {% if Article.has_next %}
                 <div class="d-flex justify-content-end mb-4">
                     <a class="btn btn-primary text-uppercase" href="">پست های جدید تر</a>
@@ -28,7 +24,6 @@
                     <a class="btn btn-primary text-uppercase" href="#!">پست های قدیمی تر</a>
                 </div>
                 {% endif %}
-                       
             </div>
         </div>
     </div>
