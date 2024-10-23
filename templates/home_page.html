@@ -16,12 +16,12 @@
                 <!-- Pager-->
                 {% if Article.has_next %}
                 <div class="d-flex justify-content-end mb-4">
-                    <a class="btn btn-primary text-uppercase" href="">پست های جدید تر</a>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'Article:home_page' %}?page={{Article.next_page_number}}">پست های جدید تر</a>
                 </div>
                 {% endif %}
                 {% if Article.has_previous %}
                 <div class="d-flex justify-content-end mb-4">
-                    <a class="btn btn-primary text-uppercase" href="#!">پست های قدیمی تر</a>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'Article:home_page' %}?page={{Article.previous_page_number}}">پست های قدیمی تر</a>
                 </div>
                 {% endif %}
             </div>

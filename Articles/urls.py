@@ -5,7 +5,9 @@ from .import views
 app_name='Article'
 
 urlpatterns = [
-    path('<slug:slug>',views.Article_detail,name='Article_detail'),
-    path('catagory/<slug:slug>',views.Show_articles_by_Catagory,name='Show_articles_by_Catagory'),
-    path('catagory/<slug:slug>/page/<int:page>',views.Show_articles_by_Catagory,name='Show_articles_by_Catagory'),
+    path('',views.home_page,name='home_page'),
+    path('page/<int:page>',views.home_page,name='home_page'),
+    path('Article/<slug:slug>',views.Article_detail,name='Article_detail'),
+    path('Article/catagory/<slug:slug>',views.Show_articles_by_Catagory,name='Show_articles_by_Catagory'),
+    path('Article/catagory/<slug:slug>/page/<int:page>',views.Show_articles_by_Catagory,name='Show_articles_by_Catagory'),
 ]
