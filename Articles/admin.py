@@ -9,3 +9,4 @@ class CatagoryManager(admin.ModelAdmin):
 
 admin.site.register(models.Article)
 admin.site.register(models.Catagory,CatagoryManager)
+admin.site.register(models.Site_settings)

@@ -55,3 +55,12 @@ class Article(models.Model):
         verbose_name='مقاله'
         verbose_name_plural='مقالات'
         ordering=['-published']
+
+
+class Site_settings(models.Model):
+    title=models.CharField(max_length=20,verbose_name='عنوان')
+    image=models.ImageField(upload_to='images',verbose_name='عکس')
+    status=models.BooleanField(default=True,verbose_name='فعال/غیرفعال')
+    
+    def __str__(self):
+        return self.title
