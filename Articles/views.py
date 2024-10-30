@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404
 
 from django.core.paginator import Paginator
 
-from .models import Article,Catagory
+from .models import Article,Catagory,Site_settings
 
 # Create your views here.
 
@@ -24,6 +24,7 @@ def Article_detail(request,slug):
 
 def Show_articles_by_Catagory(request,slug):
     context={
-        'Catagory':get_object_or_404(Catagory,slug=slug,status=True)
+        'Catagory':get_object_or_404(Catagory,slug=slug,status=True),
+        'Last_slider':Site_settings.objects.filter(status=True)
     }
     return render(request,'Articles/Show_articles_by_Catagory.html',context)
