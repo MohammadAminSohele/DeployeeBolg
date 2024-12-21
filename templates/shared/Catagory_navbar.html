@@ -4,7 +4,7 @@
             {% if cat.parent == None %}
                 <li class="nav-item">
                     <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Article:Show_articles_by_Catagory' cat.slug %}">{{cat.title}}</a>
-                    {% if cat.children.all %}
+                    {% if cat.children.active %}
                         {% include 'shared/Catagory_navbar_children.html' %}
                     {% endif %}
                 </li>

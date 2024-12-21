@@ -9,6 +9,10 @@ from extentions.utils import JalaliConverter
 class ArticleManager(models.Manager):
     def published(self):
         return self.filter(status='p')
+    
+class CatagoryManager(models.Manager):
+    def active(self):
+        return self.filter(status=True)
 
 class Catagory(models.Model):
     parent=models.ForeignKey('self',default=None,blank=True,null=True,on_delete=models.CASCADE,related_name='children',verbose_name='زیر دسته')
@@ -19,6 +23,8 @@ class Catagory(models.Model):
 
     def __str__(self):
         return self.title
+    
+    objects=CatagoryManager()
     
     class Meta:
         verbose_name='دسته بندی'
