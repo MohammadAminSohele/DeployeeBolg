@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 
 from django.core.paginator import Paginator
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 
 from .models import Article,Catagory,Site_settings
 
@@ -32,11 +32,16 @@ class ArticleList(ListView):
     
     
 
-def Article_detail(request,slug):
-    context={
-        'object':get_object_or_404(Article.objects.published(),slug=slug)
-    }
-    return render(request,'Articles/Article_detail.html',context)
+# def Article_detail(request,slug):
+#     context={
+#         'object':get_object_or_404(Article.objects.published(),slug=slug)
+#     }
+#     return render(request,'Articles/Article_detail.html',context)
+
+class ArticleDetail(DetailView):
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Article.objects.published(),slug=slug)
 
 def Show_articles_by_Catagory(request,slug):
     context={
