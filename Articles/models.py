@@ -14,6 +14,10 @@ class CatagoryManager(models.Manager):
     def active(self):
         return self.filter(status=True)
 
+class SettingManager(models.Manager):
+    def active(self):
+        return self.filter(status=True)
+
 class Catagory(models.Model):
     parent=models.ForeignKey('self',default=None,blank=True,null=True,on_delete=models.CASCADE,related_name='children',verbose_name='زیر دسته')
     title=models.CharField(max_length=100,verbose_name='عنوان')
@@ -62,7 +66,6 @@ class Article(models.Model):
         verbose_name_plural='مقالات'
         ordering=['-published']
 
-
 class Site_settings(models.Model):
     title=models.CharField(max_length=20,verbose_name='عنوان')
     image=models.ImageField(upload_to='images',verbose_name='عکس')
@@ -70,3 +73,5 @@ class Site_settings(models.Model):
     
     def __str__(self):
         return self.title
+    
+    objects=SettingManager()
