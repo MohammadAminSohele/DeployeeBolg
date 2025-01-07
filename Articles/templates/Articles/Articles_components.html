@@ -6,10 +6,9 @@
         <h3 class="post-subtitle">{{object.description}}</h3>
     </a>
     <p class="post-meta">
-        {% comment %} Posted by {% endcomment %}
         {% comment %} <a href="#!">Start Bootstrap</a> {% endcomment %}
-        {{object.Jpublish}}
-        <br>
+        {{object.Jpublish}}<br>
+        <a href="{% url 'Article:AuthorList' object.author %}">{{object.author}}</a>
         {% for cat in object.catagory_published.all %}
             # {{cat.title}}
         {% endfor %}

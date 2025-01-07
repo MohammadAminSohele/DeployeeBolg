@@ -25,7 +25,7 @@ def make_draft(modeladmin, request, queryset):
 make_draft.short_description ="مقالات انتخاب شده پیش نویس شد"
 
 class ArticleManager(admin.ModelAdmin):
-    list_display=('slug','status')
+    list_display=('slug','author','status')
     actions=[make_published,make_draft]
 class CatagoryManager(admin.ModelAdmin):
     list_display=('title','position','id','parent')

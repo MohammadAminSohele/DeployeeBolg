@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 
 from django.views.generic import ListView,DetailView
+from django.contrib.auth.models import User
 
 from .models import Article,Catagory,Site_settings
 
@@ -36,3 +37,18 @@ class CatagoryList(ListView):
         context["Catagory"] = catagory
         context["Last_slider"] = Site_settings.objects.active()
         return context
+    
+class AuthorList(ListView):
+    paginate_by=3
+    template_name='Articles/Show_articles_by_author.html'
+    def get_queryset(self):
+        global author
+        username=self.kwargs.get('username')
+        author=get_object_or_404(User,username=username)
+        return author.articles.published()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["author"] = author
+        context["Last_slider"] = Site_settings.objects.active()
+        return context
+    

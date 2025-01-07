@@ -1,0 +1,19 @@
+<h3 class="alert alert-primary text-center">{{author}}</h3>
+{% for article in author.articles.published %}
+<!-- Post preview-->
+<div class="post-preview">
+    <a href="{% url 'Article:Article_detail' article.slug %}">
+        <h2 class="post-title">{{article.title}}</h2>
+        <h3 class="post-subtitle">{{article.description}}</h3>
+    </a>
+    <p class="post-meta">
+        {{article.Jpublish}}
+        <br>
+        {% for cat in article.cataogry.all %}
+            # {{cat.title}}
+        {% endfor %}
+    </p>
+</div>
+<!-- Divider-->
+<hr class="my-4" />
+{% endfor %}

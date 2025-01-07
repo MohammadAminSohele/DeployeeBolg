@@ -10,4 +10,6 @@ urlpatterns = [
     path('Article/<slug:slug>',views.ArticleDetail.as_view(),name='Article_detail'),
     path('Article/catagory/<slug:slug>',views.CatagoryList.as_view(),name='Show_articles_by_Catagory'),
     path('Article/catagory/<slug:slug>/page/<int:page>',views.CatagoryList.as_view(),name='Show_articles_by_Catagory'),
+    path('Article/author/<slug:username>',views.AuthorList.as_view(),name='AuthorList'),
+    path('Article/author/<slug:username>/page/<int:page>',views.AuthorList.as_view(),name='AuthorList'),
 ]
